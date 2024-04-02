@@ -42,8 +42,8 @@ func Register(w http.ResponseWriter, r *http.Request) {
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
-	username := r.FormValue("username")
-	password := r.FormValue("password")
+	username := r.PostFormValue("username")
+	password := r.PostFormValue("password")
 	if strings.TrimSpace(username) == "" || strings.TrimSpace(password) == "" {
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintf(w, "输入用户名或密码为空！")

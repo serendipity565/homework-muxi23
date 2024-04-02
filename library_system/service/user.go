@@ -9,6 +9,7 @@ type User struct {
 	Password string `json:"password"`
 }
 
+// 查找是否有该用户
 func Finduser(username string, password string) int {
 	var myuser User
 	sqlstr := "select name,password from users where name = ?"
@@ -22,6 +23,7 @@ func Finduser(username string, password string) int {
 	}
 }
 
+// 注册用户
 func Register(username string, password string) (err error) {
 	tx, err := db.Db.Begin()
 	if err != nil {
